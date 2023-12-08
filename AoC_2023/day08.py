@@ -8,12 +8,16 @@ def calc_steps(instructions, start_nodes, nodes, end_regex):
     steps = []
     
     for node in start_nodes:
+
         step = 0
         matched = False
+
         while not matched:
             for lr in instructions:
+
                 step += 1
                 node = nodes[node][lr_idx[lr]]
+
                 if re.fullmatch(end_regex, node):
                     steps.append(step)
                     matched = True
@@ -36,9 +40,6 @@ def solve():
     print(f'Day {day}, part one: {p1}')
     print(f'Day {day}, part two: {p2}')
 
-
-
-
 day = 8
-puzzle_input = AoC.load_puzzle_input(day, split_lines=False, test_input=False)
+puzzle_input = AoC.load_puzzle_input(day, split_lines=False)
 solve()
