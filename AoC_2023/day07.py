@@ -47,9 +47,6 @@ def compare(a, b):
 
     # Determine which types of hands we're comparing
     hand_types = [hand_type(hand) for hand in hands]
-    print(hand_types)
-    hand_types = [26-sum([hand.count(i) for i in hand]) for hand in hands]
-    print(hand_types)
 
     # compare hand types
     if hand_types[0] < hand_types[1]:
@@ -104,5 +101,5 @@ def solve():
 
 joker_mode = False
 day = 7
-puzzle_input = AoC.load_puzzle_input(day,test_input=True)
+puzzle_input = AoC.load_puzzle_input(day)
 solve()
