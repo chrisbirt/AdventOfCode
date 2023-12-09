@@ -15,8 +15,8 @@ def solve():
 
     # Extend each list in the puzzle input, appending a list of the transformations.
     #
-    # eg:       [ [[0, 3, 6, 9, 12, 15] .....
-    # becomes:  [ [[0, 3, 6, 9, 12, 15], [3, 3, 3, 3, 3], [0, 0, 0, 0]] .....
+    # eg:       [ [[0, 3, 6, 9, 12, 15]] ..... ]
+    # becomes:  [ [[0, 3, 6, 9, 12, 15], [3, 3, 3, 3, 3], [0, 0, 0, 0]] ..... ]
     #
     for line in puzzle_input:
 
