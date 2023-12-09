@@ -15,8 +15,8 @@ def solve():
 
     # Extend each list in the puzzle input, appending a list of the transformations.
     #
-    # eg:       [[0, 3, 6, 9, 12, 15]]
-    # becomes:  [[0, 3, 6, 9, 12, 15], [3, 3, 3, 3, 3], [0, 0, 0, 0]
+    # eg:       [ [[0, 3, 6, 9, 12, 15] .....
+    # becomes:  [ [[0, 3, 6, 9, 12, 15], [3, 3, 3, 3, 3], [0, 0, 0, 0]] .....
     #
     for line in puzzle_input:
 
@@ -30,7 +30,6 @@ def solve():
 
         # Part two is a function of the first elements in the list a - b + c - d + e ....
         #
-        #p2 += line[0][0]
         for i in range(len(line)):
             p2 += line[i][0] * (1 if (i % 2 == 0) else -1)
 
@@ -38,5 +37,5 @@ def solve():
     print(f'Day {day}, part two: {p2}')
 
 day = 9
-puzzle_input = AoC.load_puzzle_input(day, test_input=False)
+puzzle_input = AoC.load_puzzle_input(day)
 solve()
