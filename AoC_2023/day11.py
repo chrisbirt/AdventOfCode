@@ -12,7 +12,7 @@ def find_galaxies(universe):
 
     return galaxies
 
-def expand_universe(galaxies, multiply_by):
+def expand_universe(galaxies, expansion):
 
     new_galaxies = galaxies[:]
 
@@ -26,9 +26,9 @@ def expand_universe(galaxies, multiply_by):
         x, y = g[0], g[1]
 
         # expand the x/y coordinates by the number of lower x/y coordinates that don't have any galaxies        
-        # also multiply the expansion  ( dist-1 is because we already have one gap, so we're appending to the gap. )
-        x = x + (x - len([i for i in all_xs if i < x]))*(multiply_by-1)
-        y = y + (y - len([i for i in all_ys if i < y]))*(multiply_by-1)
+        # also multiply the expansion  ( expansion-1 is because we already have one gap, so we're appending to the gap. )
+        x = x + (x - len([i for i in all_xs if i < x]))*(expansion-1)
+        y = y + (y - len([i for i in all_ys if i < y]))*(expansion-1)
 
         new_galaxies[ig] = (x,y)
     
@@ -40,13 +40,13 @@ def shortest_paths(galaxies):
 
     # compare each galaxy coordinate with the following coordinates in the list.
     for i in range(len(galaxies)-1):
-        gfrom = galaxies[i]
+        g_from = galaxies[i]
 
         for j in range(i+1, len(galaxies)):
-            gto = galaxies[j]
+            g_to = galaxies[j]
 
             # shortest path between two galaxies is the sum of the absolute differences of the x's and the y's
-            shortest_paths.append(abs(gfrom[0]-gto[0]) +  abs(gfrom[1]-gto[1]))
+            shortest_paths.append(abs(g_from[0]-g_to[0]) +  abs(g_from[1]-g_to[1]))
 
     return shortest_paths          
 
@@ -57,10 +57,12 @@ def solve():
 
     galaxies = find_galaxies(puzzle_input)
 
+    # part 1
     new_galaxies = expand_universe(galaxies, 2)
     p1 = sum(shortest_paths(new_galaxies))
 
-    new_galaxies = expand_universe(galaxies,1000000)
+    # part 2
+    new_galaxies = expand_universe(galaxies, 1000000)
     p2 = sum(shortest_paths(new_galaxies))
 
     print(f'Day {day}, part one: {p1}')
