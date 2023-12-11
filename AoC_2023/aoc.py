@@ -15,7 +15,7 @@ class AoC:
 
         if not os.path.exists(file_path_and_name):
             try:
-                os.mkdir(f'.\\day\\{day_no}')
+                os.mkdir(f'.\\day\\{"{:02d}".format(day_no)}')
             except:
                 pass
 
