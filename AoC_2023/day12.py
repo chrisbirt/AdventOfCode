@@ -2,9 +2,29 @@ from aoc import AoC
 from itertools import combinations
 import re
 
+# The approach taken here is to recursively consider each character in the string in turn.
+# If we encounter # then consider it to be in a group, and start decrementing the group values as we encounter more #
+# If we encounter . then no longer in a group. all being well, the group value should be zero, so remove the 
+# group from the list.
+#
+# eg. this matches because we examined all characters and the group values are now zero.
+#    ##.#. [2, 1]   ##.#. [1, 1]  ##.#. [0, 1]  ##.#. [1]  ##.#. [0]
+#    ^               ^              ^              ^           ^
+# 
+# eg. this doesn't match since the group value is now zero, but we're still in a group.
+#
+#    ##.#. [2, 2]   ##.#. [1, 2]  ##.#. [0, 1]  ##.#. [1]  ##.## [0]
+#    ^               ^              ^              ^           ^
+#
+# For wildcards ? consider both alternatives of it being . or # 
+#
+# Caching is needed for part two, to avoid repeatedly evaluating known paths.
+#   For my puzzle input, the cache contains 1,692,743 items and was read 126,752 times.
+#
+
 def find_matches(spring_map, groups, in_group=False):
 
-    global cache
+    global cache, cache_reads
     
     # by default, assume we will return zero, unless a non-zero result is calculated
     ret = 0
@@ -25,6 +45,7 @@ def find_matches(spring_map, groups, in_group=False):
     # if it's in the cache, just return the value
     #
     if cache_key in cache:
+        cache_reads += 1
         return cache[cache_key]
 
     # look at the first character in the string map
@@ -92,6 +113,8 @@ def solve(input):
 
 
 cache = {}
+cache_reads = 0
 day = 12
 #solve(AoC.load_puzzle_input(day, 'test_input'))
 solve(AoC.load_puzzle_input(day))
+print(f'The cache contains {len(cache)} items and was read {cache_reads} times.')
