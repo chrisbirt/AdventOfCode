@@ -35,10 +35,15 @@ def minimum_cut(edges):
         idx = 0
         vertices -= 1
 
-        # pick a random edge, and create a new vertex, catenating the names of the other vertices to be the name of the new vertex
+        # Pick a random edge, and create a new vertex, catenating the names of the 
+        # other vertices to be the name of the new vertex.
+        #
         v1, v2 = edges[random.randint(0, len(edges)-1)]
         v3 = v1 + v2    
 
+        # Replace all occurrances of the two vertices with the new vertex.
+        # If an edge ends up with the same vertex at each end, remove it
+        #
         while idx < len(edges):
             ev1, ev2 = edges[idx]
 
@@ -73,8 +78,6 @@ def solve(input):
     p1, p2 = 0, 0
     min_cut, v_left, v_right = 0, 0, 0
     attempts = 0
-
-    random.seed = 3
 
     edges = get_edges(input)
 
