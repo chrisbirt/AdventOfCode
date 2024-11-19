@@ -39,6 +39,7 @@ def solve(input):
         p1 += sum(adj_nums)
 
         # Part two. if there are two adjacent numbers and the symbol is a '*', the multiply the numbers.
+        #
         if (len(adj_nums) == 2) & (s[0]=='*'):
             p2 += np.prod(adj_nums)
 
