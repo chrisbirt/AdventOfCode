@@ -4,11 +4,13 @@ import os
 class AoC:
     
     @staticmethod
-    def load_puzzle_input(day_no: int , file_name = 'input', split_lines=True):
+    def load_puzzle_input(day_no: int , test_file = False, split_lines=True):
     
-        url = f'https://adventofcode.com/2023/day/{day_no}/input'
+        url = f'https://adventofcode.com/2024/day/{day_no}/input'
         session = '53616c7465645f5f68534ee5b3ff7e4df2ae63fdc25315bd3c6221412fa1ef99f5e9baef6e4537520d9ca3b8fb615ab53e87e936ad0090ad1cdd2230528abb3f'
         session = '53616c7465645f5f203c06c14f7984ba7bf9d15715fc9d41c0336e4dd20a716f109271e31ce9d63192f064d4b6fdb180e0008b68a8c85dfbe13782632c671308'
+
+        file_name = 'input_test' if test_file else 'input'
 
         file_path_and_name = f'.\\day\\{"{:02d}".format(day_no)}\\{file_name}'
 
