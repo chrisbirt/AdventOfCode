@@ -1,10 +1,12 @@
+from aoc import AoC
+
 def solve():
 
-    p1, p2, day = 0, 0, 3
+    year, day = 2015, 3
+    p1, p2, = 0, 0
     delta = {'>': (1,0), '<': (-1,0), 'v': (0,1), '^': (0,-1)}
 
-    with open('input03') as f:
-        input = f. read()
+    input = AoC.load_puzzle_input(year, day, split_lines = False)
 
     visited = [(0,0)]
     for char in input: 

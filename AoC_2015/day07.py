@@ -1,3 +1,5 @@
+from aoc import AoC
+
 def eval_wire(signals, wires, wire, path=''):
 
     if wire in signals:
@@ -33,10 +35,9 @@ def eval_wire(signals, wires, wire, path=''):
 
 def solve():
 
-    p1, p2, day = 0, 0, 7
-
-    with open('input07') as f:
-        input = f.read().splitlines()
+    year, day = 2015, 7
+    input = AoC.load_puzzle_input(year, day)
+    p1, p2, = 0, 0
 
     rows = [row.split(' -> ') for row in input]
     wires = {row[-1]:row[0] for row in rows}

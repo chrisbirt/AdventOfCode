@@ -1,9 +1,10 @@
+from aoc import AoC
+
 def solve():
 
     p1, p2, day = 0, 0, 2
 
-    with open('input02') as f:
-        input = f.read().splitlines()
+    input = AoC.load_puzzle_input(2015, 2)
 
     boxes = [[int(i) for i in r.split('x')] for r in input]
 

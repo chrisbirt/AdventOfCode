@@ -1,11 +1,13 @@
+from aoc import AoC
+
 def solve():
 
-    p1, p2, day = 0, 0, 5
+    year, day = 2015, 5
+    input = AoC.load_puzzle_input(year, day)
+    p1, p2, = 0, 0
+
     disallowed = ['ab', 'cd', 'pq', 'xy']
     vowels = ['a', 'e', 'i', 'o', 'u']
-
-    with open('input05') as f:
-        input = f.read().splitlines()
 
     for z, i in enumerate(input):
         r1 = sum(i.count(v) for v in vowels) >= 3

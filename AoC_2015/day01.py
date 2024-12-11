@@ -1,9 +1,12 @@
+from aoc import AoC
 def solve():
 
     p1, p2, day = 0, 0, 1
 
-    with open('input01') as f:
-        input = f. read()
+    input = AoC.load_puzzle_input(2015, 1, split_lines = False)
+
+    #with open('input01') as f:
+    #    input = f. read()
 
     p1 = sum(1 if i=='(' else -1 for i in input)
 

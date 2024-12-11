@@ -1,3 +1,4 @@
+from aoc import AoC
 import hashlib
 
 def findhash(input, prefix):
@@ -11,13 +12,14 @@ def findhash(input, prefix):
 
     return ret
 
+
 def solve():
 
-    p1, p2, day = 0, 0, 4
+    year, day = 2015, 4
+    p1, p2, = 0, 0
     hash = ''
 
-    with open('input04') as f:
-        input = f.read()
+    input = AoC.load_puzzle_input(year, day, split_lines = False)
 
     p1 = findhash(input, '00000')
     p2 = findhash(input, '000000')

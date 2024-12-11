@@ -1,12 +1,12 @@
+from aoc import AoC
 import numpy as np
 import re
 
 def solve():
 
-    p1, p2, day = 0, 0, 6
-
-    with open('input06') as f:
-        input = f. read().splitlines()
+    year, day = 2015, 6
+    input = AoC.load_puzzle_input(year, day)
+    p1, p2, = 0, 0
 
     lights_p1, lights_p2 = np.zeros((1000,1000)), np.zeros((1000,1000))
 
