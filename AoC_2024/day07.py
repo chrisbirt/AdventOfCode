@@ -2,7 +2,7 @@ from aoc import AoC
 from itertools import product
 import re
 
-# refactored from original solution to not use pythons eval method
+# refactored from original solution to not use pythons eval method. Considerably quicker!
 
 def solve(input):
     p1, p2 = 0, 0
