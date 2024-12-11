@@ -35,9 +35,8 @@ def solve(input):
         cache[(stone, blinks+1)] = ret
         return ret
 
-    for i in input:
-        p1 += expand_stone(i, 25)
-        p2 += expand_stone(i, 75)
+    p1 = sum(expand_stone(i, 25) for i in input)
+    p2 = sum(expand_stone(i, 75) for i in input)
 
     print(f'Day {day}, part one: {p1}')
     print(f'Day {day}, part two: {p2}')
