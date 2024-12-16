@@ -1,5 +1,4 @@
 from aoc import AoC
-import copy
 from collections import defaultdict
 
 # Solve using https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
@@ -7,7 +6,6 @@ from collections import defaultdict
 def solve(input):
 
     p1, p2 = 0, 0
-    sr, sc = 0, 0
     end = ()
     steps = defaultdict(list)
     paths = []
