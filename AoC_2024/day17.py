@@ -147,8 +147,8 @@ def solve(input):
     while True:
         new_seeds = []
         for s in seeds:
-            for reg_a in range(s * 8, (s+1) * 8 ):
-                output = run (reg_a, reg_b, reg_c, prog)
+            for reg_a in range(s * 8, (s + 1) * 8):
+                output = run(reg_a, reg_b, reg_c, prog)
                 # does the output match the end of the program?
                 if output == prog[-len(output):]:
                     new_seeds.append(reg_a)
